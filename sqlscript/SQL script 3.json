@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 3",
+	"properties": {
+		"content": {
+			"query": "SELECT *\nFROM (\n    SELECT *\n    FROM OPENROWSET(\n        BULK 'https://kraftsynapse.dfs.core.windows.net/incidentcontainer/tickets.csv',\n        FORMAT='CSV',\n        PARSER_VERSION='2.0',\n        HEADER_ROW=TRUE\n    ) WITH (\n        TicketID NVARCHAR(50),\n        DateCreated NVARCHAR(50),\n        Category NVARCHAR(255),\n        Priority NVARCHAR(50),\n        AssignedTeam NVARCHAR(50),\n        Status NVARCHAR(50),\n        Description NVARCHAR(1000),\n        RootCause NVARCHAR(255)\n    ) AS raw\n) AS cleaned\nWHERE Description IS NOT NULL AND LTRIM(RTRIM(Description)) <> '';\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

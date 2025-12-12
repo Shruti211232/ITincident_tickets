@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 2",
+	"properties": {
+		"content": {
+			"query": "-- Diagnostic query to see the raw data\nSELECT TOP 100\n    TicketID,\n    DateCreated,\n    LEN(TicketID) as TicketID,\n    LEN(DateCreated) as DateCreated,LEN(Category) as Category,LEN(Priority) as Priority,LEN(AssignedTeam) as AssignedTeam,LEN(Status) as Status,LEN(Description) as Description,LEN(RootCause) as RootCause\nFROM\n    OPENROWSET(\n        BULK 'https://kraftsynapse.dfs.core.windows.net/incidentcontainer/tickets.csv',\n        FORMAT='CSV',\n        PARSER_VERSION='2.0',\n        HEADER_ROW=TRUE\n    ) WITH (\n        TicketID NVARCHAR(50),\n        DateCreated NVARCHAR(50),\n        Category NVARCHAR(255),\n        Priority NVARCHAR(50),\n        AssignedTeam NVARCHAR(50),\n        Status NVARCHAR(50),\n        Description NVARCHAR(1000),\n        RootCause NVARCHAR(255)\n    ) AS [tickets];\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

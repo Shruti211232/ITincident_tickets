@@ -1,0 +1,57 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabasegroup1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "timestamp",
+				"type": "datetime2",
+				"scale": 3
+			},
+			{
+				"name": "machine_id",
+				"type": "varchar"
+			},
+			{
+				"name": "cpu_usage",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "memory_usage",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "error_rate",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "failure_within_24h",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "inserted_at",
+				"type": "datetime2",
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AIOpsMonitoringData"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

@@ -1,0 +1,60 @@
+{
+	"name": "AzureSqlTable2kishan",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1gourp3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "StudentName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Gender",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Age",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Section",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Science",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "English",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "History",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Maths",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Student_Marksheet"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
